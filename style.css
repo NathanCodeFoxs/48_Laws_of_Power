@@ -1,0 +1,163 @@
+/* Reset margin and padding for body and html, and set the full height */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Baskerville', serif; /* Set font family */
+    color: #333333; /* Charcoal gray text */
+}
+
+/* Background container using flexbox to split into three sections */
+.background {
+    display: flex; /* Use flexbox for layout */
+    height: 100vh; /* Full viewport height */
+}
+
+/* Left section with crimson red background */
+.left, .right {
+    width: 25%; /* Each side takes 25% width */
+    background-color: #DC143C; /* Crimson Red background */
+}
+
+/* Center section with dark navy blue background */
+.center {
+    width: 50%; /* Center section takes 50% width */
+    background-color: #002F6C; /* Dark Navy Blue background */
+    display: flex; /* Center content vertically and horizontally */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent overflow in the center section */
+    padding: 20px; /* Padding inside the center section */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+/* Accordion container with maximum width and padding */
+.accordion {
+    max-width: 800px; /* Maximum width of the accordion */
+    width: 100%; /* Ensure the accordion takes full width of the center section */
+    background-color: #FFFFF0; /* Ivory background for readability */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for contrast */
+    padding: 20px; /* Padding inside the accordion container */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    max-height: 650px; /* Adjust height to fit approximately 5 items */
+    overflow-y: auto; /* Enable scrolling for overflowing content */
+}
+
+/* Each accordion item with a bottom border */
+.accordion-item {
+    border-bottom: 1px solid #002F6C; /* Dark navy blue border */
+}
+
+/* Hide the checkbox inputs */
+.accordion-checkbox {
+    display: none;
+}
+
+/* Label for the checkbox, acts as the clickable title */
+.accordion-label {
+    display: block; /* Block display for full-width clickable area */
+    padding: 15px; /* Padding for clickable area */
+    background-color: #FFD700; /* Gold background for prestige */
+    color: #002F6C; /* Dark navy blue text for contrast */
+    font-family: 'Baskerville', serif; /* Font family */
+    font-size: 30px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+/* Change background color on hover */
+.accordion-label:hover {
+    background-color: #FFC107; /* Slightly darker gold on hover */
+}
+
+/* Content of the accordion item, initially hidden */
+.accordion-content {
+    max-height: 0; /* Start with zero height */
+    overflow: hidden; /* Hide overflow content */
+    transition: max-height 0.3s ease-out; /* Smooth height transition */
+    background-color: #FFFFF0; /* Ivory background for content */
+    color: #333333; /* Charcoal gray text */
+    padding: 0 15px; /* Padding for content */
+    font-size: 25px; /* Font size */
+}
+
+/* When checkbox is checked, expand the content */
+.accordion-checkbox:checked ~ .accordion-content {
+    max-height: 500px; /* Set max height based on content length */
+    padding: 15px; /* Add padding when expanded */
+}
+
+/* Toggle switch container */
+.toggle-container {
+    position: absolute; /* Position the toggle switch absolutely */
+    top: 20px; /* Top margin */
+    left: 20px; /* Left margin */
+}
+
+/* Hide the checkbox inputs */
+.toggle-switch {
+    display: none;
+}
+
+/* Style the toggle label to create a switch */
+.toggle-label {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    background-color: #000000; /* Black background */
+    border-radius: 34px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Create the switch circle */
+.toggle-label::before {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #FFFFFF; /* White circle */
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+/* When the checkbox is checked, change the switch background and move the circle */
+.toggle-switch:checked + .toggle-label {
+    background-color: #808080; /* Gray background */
+}
+
+.toggle-switch:checked + .toggle-label::before {
+    transform: translateX(26px); /* Move the circle to the right */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #333333; /* Dark background */
+    color: #FFFFFF; /* Light text */
+}
+
+body.dark-mode .left, body.dark-mode .right {
+    background-color: #8B0000; /* Darker crimson red */
+}
+
+body.dark-mode .center {
+    background-color: #000080; /* Darker navy blue */
+}
+
+body.dark-mode .accordion {
+    background-color: #444444; /* Dark background for accordion */
+    color: #FFFFFF; /* Light text */
+}
+
+body.dark-mode .accordion-label {
+    background-color: #555555; /* Dark background for labels */
+    color: #FFFFFF; /* Light text */
+}
+
+body.dark-mode .accordion-content {
+    background-color: #666666; /* Dark background for content */
+    color: #FFFFFF; /* Light text */
+}
